@@ -1,9 +1,3 @@
-export interface Movie {
-	id: number;
-	poster_path: string;
-	title: string;
-}
-
 export interface ReleaseDate {
 	certification: string;
 	release_date: string;
@@ -17,7 +11,7 @@ export interface ReleaseCountry {
 
 export interface MovieData {
 	id: number;
-	title?: string;
+	title?: string | undefined;
 	release_date?: string;
 	vote_average?: number;
 	runtime?: number;

@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import "./Filters.css";
 import "./Filters-mobile.css";
 import { useSearchbar } from "../../context/SearchBarContext";
-import type { FilterProps, GenreItem } from "../../types/filterTypes";
+import type { FilterProps, GenreItem, Movie } from "../../types/filterTypes";
 
 function Filters({
 	genre,
@@ -53,9 +53,10 @@ function Filters({
 		}
 
 		results = results.filter((movie) => {
+			if (rating === null) return true;
+
 			const movieRating = Number(movie.vote_average);
-			if (movieRating != null && rating >= movieRating) return false;
-			return true;
+			return rating < movieRating;
 		});
 
 		results = results.filter((movie) => {

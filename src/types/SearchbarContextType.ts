@@ -1,11 +1,11 @@
-import type { Movie } from "./MovieType";
+import type { MovieData } from "./MovieType";
 
 export type SearchbarContextType = {
-	getAllMovies: Movie[];
+	getAllMovies: MovieData[];
 	searchValue: string;
 	setSearchValue: (value: string) => void;
 	searchPropOpen: boolean;
 	setSearchPropOpen: (value: boolean) => void;
-	filteredMovies: Movie[];
-	setFilteredMovies: (movies: Movie[]) => void;
+	filteredMovies: MovieData[];
+	setFilteredMovies: (movies: MovieData[]) => void;
 };

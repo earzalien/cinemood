@@ -9,6 +9,7 @@ import { useAlreadySeenMovieList } from "../../context/AlreadySeenMovieListConte
 import { useFavoriteMovieList } from "../../context/FavoriteMovieListContext";
 import { useWatchListMovie } from "../../context/WatchListMovieContext";
 import Tag from "../Tag/Tag";
+import type { MovieData } from "../../types/MovieType";
 
 export default function RecosCarousel({
 	movieRecos,
@@ -107,6 +108,6 @@ export default function RecosCarousel({
 }
 
 interface RecosCarouselProps {
-	movieRecos: Movie[];
+	movieRecos: MovieData[];
 	randomStartIndex: number;
 }

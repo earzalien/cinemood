@@ -1,3 +1,5 @@
+import type { MovieData } from "./MovieType";
+
 export type GenreItem = {
 	id: number;
 	name: string;
@@ -10,7 +12,7 @@ export type GenreResponse = {
 export type Movie = {
 	backdrop_path: string;
 	genre_ids: number[];
-	poster_path: string;
+	poster_path: string | undefined;
 	release_date: string;
 	title: string;
 	vote_average: number;
