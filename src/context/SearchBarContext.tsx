@@ -3,9 +3,15 @@ import { getAllMovies } from "../api";
 import type { Movie } from "../types/MovieType";
 import type { SearchbarContextType } from "../types/SearchbarContextType";
 
-export const SearchbarContext = createContext<SearchbarContextType | null>(
-	null,
-);
+export const SearchbarContext = createContext<SearchbarContextType>({
+	getAllMovies: [],
+	searchValue: "",
+	setSearchValue: () => {},
+	searchPropOpen: false,
+	setSearchPropOpen: () => {},
+	filteredMovies: [],
+	setFilteredMovies: () => {},
+});
 
 export function useSearchbar() {
 	const context = useContext(SearchbarContext);
@@ -16,7 +22,9 @@ export function useSearchbar() {
 	return context;
 }
 
-function SearchbarProvider({ children }: { children }): JSX.Element {
+function SearchbarProvider({
+	children,
+}: { children: React.ReactNode }): JSX.Element {
 	const [searchValue, setSearchValue] = useState("");
 	const [searchPropOpen, setSearchPropOpen] = useState(false);
 	const [filteredMovies, setFilteredMovies] = useState<Movie[]>([]);
