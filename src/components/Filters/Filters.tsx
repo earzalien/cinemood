@@ -2,25 +2,25 @@ import { useEffect, useState } from "react";
 import "./Filters.css";
 import "./Filters-mobile.css";
 import { useSearchbar } from "../../context/SearchBarContext";
+import type { FilterProps, GenreItem } from "../../types/filterTypes";
 
 function Filters({
 	genre,
 	movies,
-	filteredMovies,
 	setFilteredMovies,
 	isOpen,
 	setIsOpen,
-}) {
+}: FilterProps) {
 	const [open, setOpen] = useState(false);
 	const [yearOpen, setYearOpen] = useState(false);
-	const [combinedGenres, setCombinedGenres] = useState([]);
-	const [minYear, setMinYear] = useState(1950);
-	const [maxYear, setMaxYear] = useState(2025);
+	const [combinedGenres, setCombinedGenres] = useState<number[]>([]);
+	const [minYear, setMinYear] = useState<number | null>(1950);
+	const [maxYear, setMaxYear] = useState<number | null>(2025);
 	const [ratingOpen, setRatingOpen] = useState(false);
-	const [rating, setRating] = useState("");
+	const [rating, setRating] = useState<number | null>(null);
 	const { searchValue, setSearchValue, setSearchPropOpen } = useSearchbar();
 
-	const selectGenre = (g) => {
+	const selectGenre = (g: GenreItem) => {
 		let update = [];
 		if (combinedGenres.includes(g.id)) {
 			update = combinedGenres.filter((id) => id !== g.id);
@@ -30,8 +30,10 @@ function Filters({
 
 		setCombinedGenres(update);
 	};
-
-	const selectYear = (min, max) => {
+	const selectYear = (
+		min: string | number | null,
+		max: string | number | null,
+	) => {
 		setMinYear(min ? Number(min) : null);
 		setMaxYear(max ? Number(max) : null);
 		setIsOpen(true);
@@ -132,7 +134,7 @@ function Filters({
 							<div className={`year-content ${yearOpen ? "show-year" : ""}`}>
 								<select
 									className="year-select"
-									value={minYear}
+									value={minYear ?? ""}
 									onChange={(e) => selectYear(e.target.value, maxYear)}
 								>
 									{Array.from({ length: 2025 - 1950 + 1 }, (_, i) => {
@@ -146,7 +148,7 @@ function Filters({
 								</select>
 								<select
 									className="year-select"
-									value={maxYear}
+									value={maxYear ?? ""}
 									onChange={(e) => selectYear(minYear, e.target.value)}
 								>
 									{Array.from({ length: 2025 - 1950 + 1 }, (_, i) => 1950 + i)
@@ -173,7 +175,7 @@ function Filters({
 							>
 								<select
 									className="rating-select"
-									value={rating}
+									value={rating ?? ""}
 									onChange={(e) => {
 										setRating(Number(e.target.value));
 										setIsOpen(true);
@@ -203,7 +205,7 @@ function Filters({
 							}}
 						>
 							<img
-								src="/filterimages/close_btn_icon.png"
+								src="../../../public/filterimages/close_btn_icon.png"
 								alt="X"
 								style={{ width: "18px" }}
 							/>

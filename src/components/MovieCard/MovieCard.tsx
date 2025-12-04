@@ -2,8 +2,8 @@ import "./MovieCard.css";
 import "./MovieCard-mobile.css";
 import { Link } from "react-router";
 import { useAlreadySeenMovieList } from "../../context/AlreadySeenMovieListContext";
-import { useFavoriteMovieList } from "../../context/FavoriteMovieListContext";
-import { useWatchListMovie } from "../../context/WatchListMovieContext";
+import { useFavoriteMoviesList } from "../../context/FavoriteMovieListContext";
+import { useWatchListMovies } from "../../context/WatchListMoviesContext";
 import type { MovieData } from "../../types/MovieType";
 import Tag from "../Tag/Tag";
 
@@ -17,8 +17,8 @@ function MovieCard({ movie }: MovieCardProps) {
 		: "https://via.placeholder.com/500x750?text=No+Image";
 	const { AlreadySeenMovieList, setAlreadySeenMovieList } =
 		useAlreadySeenMovieList();
-	const { FavoriteMovieList, setFavoriteMovieList } = useFavoriteMovieList();
-	const { WatchListMovie, setWatchListMovie } = useWatchListMovie();
+	const { FavoriteMoviesList, setFavoriteMoviesList } = useFavoriteMoviesList();
+	const { WatchListMovies, setWatchListMovies } = useWatchListMovies();
 
 	return (
 		<>
@@ -37,15 +37,15 @@ function MovieCard({ movie }: MovieCardProps) {
 						<div className="tag-list-carousel">
 							<Tag
 								className="icon-small-carousel"
-								list={FavoriteMovieList}
-								setter={setFavoriteMovieList}
+								list={FavoriteMoviesList}
+								setter={setFavoriteMoviesList}
 								icon="bi bi-suit-heart"
 								movie={movie}
 							/>
 							<Tag
 								className="icon-small-carousel"
-								list={WatchListMovie}
-								setter={setWatchListMovie}
+								list={WatchListMovies}
+								setter={setWatchListMovies}
 								icon="bi bi-plus-circle"
 								movie={movie}
 							/>

@@ -9,7 +9,7 @@ const options = {
 	},
 };
 
-async function getMoviesByPage(page) {
+async function getMoviesByPage(page: number) {
 	const url = `${apiUrl}discover/movie?&include_adult=false&include_video=false&language=fr-FR&vote_average.gte=5&primary_release_date.gte=1960-01-01&vote_count.gte=100&page=${page}`;
 	try {
 		const res = await fetch(url, options);
@@ -37,8 +37,7 @@ export const getAllMovies = moviesWithoutDuplicats.filter(
 );
 
 export async function getGenresMovies() {
-	const urlGenre =
-		"https://api.themoviedb.org/3/genre/movie/list?language=fr-FR";
+	const urlGenre = "https://api.themoviedb.org/3/genre/movie/list";
 	try {
 		const res = await fetch(urlGenre, options);
 		const data = await res.json();
