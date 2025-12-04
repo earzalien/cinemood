@@ -2,10 +2,10 @@ import { useEffect, useState } from "react";
 import "./Filters.css";
 import "./Filters-mobile.css";
 import { useSearchbar } from "../../context/SearchBarContext";
-import type { FilterProps, GenreItem, Movie } from "../../types/filterTypes";
+import type { FilterProps, GenreItem } from "../../types/filterTypes";
 
 function Filters({
-	genre,
+	genreListApi,
 	movies,
 	setFilteredMovies,
 	isOpen,
@@ -107,7 +107,7 @@ function Filters({
 								Genre
 							</button>
 							<div className={`dropdown-content ${open ? "show" : ""}`}>
-								{genre?.genres?.map((g) => (
+								{genreListApi?.genres?.map((g) => ( 
 									<button
 										className={`genre-link ${
 											combinedGenres.includes(g.id) ? "active" : ""
@@ -206,7 +206,7 @@ function Filters({
 							}}
 						>
 							<img
-								src="../../../public/filterimages/close_btn_icon.png"
+								src="/filterimages/close_btn_icon.png"
 								alt="X"
 								style={{ width: "18px" }}
 							/>
@@ -218,7 +218,7 @@ function Filters({
 			{isOpen && (
 				<div className="selected-genres">
 					{combinedGenres.map((id) => {
-						const g = genre?.genres?.find((item) => item.id === id);
+						const g = genreListApi?.genres?.find((item) => item.id === id);
 						if (!g) return null;
 
 						return (

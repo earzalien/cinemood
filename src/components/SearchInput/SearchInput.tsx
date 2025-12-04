@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
 import "./SearchInput.css";
 import { useSearchbar } from "../../context/SearchBarContext";
-import type { MovieData } from "../../types/MovieType";
+import type { Movie } from "../../types/filterTypes";
 
 function SearchInput() {
-	const [searchTitleProp, setSearchTitleProp] = useState<MovieData[]>([]);
+	const [searchTitleProp, setSearchTitleProp] = useState<Movie[]>([]);
 	const {
 		searchValue,
 		setSearchValue,

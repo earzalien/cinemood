@@ -1,11 +1,11 @@
-import type { MovieData } from "./MovieType";
+import type { Movie } from "./filterTypes";
 
 export type SearchbarContextType = {
-	getAllMovies: MovieData[];
+	getAllMovies: Movie[];
 	searchValue: string;
 	setSearchValue: (value: string) => void;
 	searchPropOpen: boolean;
 	setSearchPropOpen: (value: boolean) => void;
-	filteredMovies: MovieData[];
-	setFilteredMovies: (movies: MovieData[]) => void;
+	filteredMovies: Movie[];
+	setFilteredMovies: React.Dispatch<React.SetStateAction<Movie[]>>;
 };

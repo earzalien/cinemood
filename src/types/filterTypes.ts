@@ -1,5 +1,3 @@
-import type { MovieData } from "./MovieType";
-
 export type GenreItem = {
 	id: number;
 	name: string;
@@ -10,6 +8,7 @@ export type GenreResponse = {
 };
 
 export type Movie = {
+	id: number;
 	backdrop_path: string;
 	genre_ids: number[];
 	poster_path: string | undefined;
@@ -19,8 +18,9 @@ export type Movie = {
 };
 
 export type FilterProps = {
-	genre: GenreResponse;
+	genreListApi: GenreResponse[];
 	movies: Movie[];
+	filteredMovies: Movie[];
 	setFilteredMovies: React.Dispatch<React.SetStateAction<Movie[]>>;
 	isOpen: boolean;
 	setIsOpen: React.Dispatch<React.SetStateAction<boolean>>;

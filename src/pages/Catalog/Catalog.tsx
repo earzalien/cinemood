@@ -59,9 +59,9 @@ function Catalog() {
 				<div className="cover-overly" />
 			</div>
 			<Filters
-				genre={genre}
+				genreListApi={genre}
 				movies={getAllMovies}
-				filteredMovies={setFilteredMovies}
+				filteredMovies={filteredMovies}
 				setFilteredMovies={setFilteredMovies}
 				isOpen={isOpen}
 				setIsOpen={setIsOpen}
