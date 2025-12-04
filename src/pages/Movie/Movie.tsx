@@ -146,10 +146,12 @@ function Movie() {
           header.style.backgroundImage = `url(${resizedUrl})`;
         })
         .catch(() => {
-          header.style.backgroundImage = "url(/background-movie-not-found.jpg)";
+          header.style.backgroundImage =
+											"url(../../assets/images/film-reel-purple-background.jpg)";
         });
     } else {
-      header.style.backgroundImage = "url(/background-movie-not-found.jpg)";
+      header.style.backgroundImage =
+							"url(../../assets/images/film-reel-purple-background.jpg)";
     }
   }, [movie]);
 
