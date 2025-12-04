@@ -12,6 +12,7 @@ h1 {
 	flex-direction: column;
 	gap: 20px;
 	font-size: var(--font-size-text);
+	font-family: var(--font-family-text);
 	padding: 50px;
 	width: 55%;
 	margin: 20px auto;
@@ -19,3 +20,9 @@ h1 {
 	border-radius: 20px;
 	line-height: 1.5;
 }
+
+@media (max-width: 480px) {
+	.about {
+		width: 80%;
+	}
+	}

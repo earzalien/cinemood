@@ -37,7 +37,7 @@ export const getAllMovies = moviesWithoutDuplicats.filter(
 );
 
 export async function getGenresMovies() {
-	const urlGenre = "https://api.themoviedb.org/3/genre/movie/list";
+	const urlGenre = "https://api.themoviedb.org/3/genre/movie/list?language=fr-FR";
 	try {
 		const res = await fetch(urlGenre, options);
 		const data = await res.json();
