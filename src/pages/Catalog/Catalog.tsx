@@ -15,7 +15,7 @@ import MovieCard from "../../components/MovieCard/MovieCard";
 import { SearchbarContext } from "../../context/SearchBarContext";
 
 function Catalog() {
-	const [genre, setGenre] = useState([]);
+	const [genres, setGenre] = useState<any>([]);
 	const [popularMovies, setPopularMovies] = useState([]);
 	const [topRatedMovies, setTopRatedMovies] = useState([]);
 	const [nowPlayingMovies, setNowPlayingMovies] = useState([]);
@@ -59,7 +59,7 @@ function Catalog() {
 				<div className="cover-overly" />
 			</div>
 			<Filters
-				genreListApi={genre}
+				genreListApi={genres}
 				movies={getAllMovies}
 				filteredMovies={filteredMovies}
 				setFilteredMovies={setFilteredMovies}
