@@ -167,17 +167,19 @@ function Movie() {
 
   const pegiIcon = (cert?: string) => {
     switch (cert) {
-      case "TP":
-        return "/pegi/logopublic.png";
-      case "12":
-        return "/pegi/logo12.png";
-      case "16":
-        return "/pegi/logo16.png";
-      case "18":
-        return "/pegi/logo18.png";
-      default:
-        return undefined;
-    }
+					case "TP":
+						return "/pegi/logopublic.png";
+					case "U":
+						return "/pegi/logopublic.png";
+					case "12":
+						return "/pegi/logo12.png";
+					case "16":
+						return "/pegi/logo16.png";
+					case "18":
+						return "/pegi/logo18.png";
+					default:
+						return undefined;
+				}
   };
 
   const originCountry =
