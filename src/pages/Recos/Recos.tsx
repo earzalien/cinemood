@@ -4,13 +4,14 @@ import "./Recos.css";
 import { Link } from "react-router";
 import { useQuiz } from "../../context/QuizContext";
 import type { MovieData } from "../../types/MovieType";
+import { useLaunch } from "../../context/LaunchQuiz";
 
 export default function Recos() {
 	const { quizAnswers } = useQuiz();
 	const quizTaken = quizAnswers.length > 0;
 	const [movieRecos, setMovieRecos] = useState<MovieData[]>([]);
 	const randomStartIndex = Math.floor(Math.random() * 14);
-
+	const { setLaunch } = useLaunch();
 	const fetchMovie = useCallback(() => {
 		const randomPage = Math.floor(Math.random() * 500) + 1;
 
@@ -82,7 +83,14 @@ export default function Recos() {
 				{quizTaken ? (
 					<>
 						<div className="link-center-container">
-							<Link to="/quiz" className="primary-button low-emphasis-button">
+							<Link
+								to="/quiz"
+								className="primary-button low-emphasis-button"
+								onClick={() => {
+									setLaunch(true);
+									window.scrollTo({ top: 0, left: 0 });
+								}}
+							>
 								Redémarrer le quiz
 							</Link>
 						</div>
@@ -92,7 +100,10 @@ export default function Recos() {
 						<button
 							type="button"
 							className="primary-button low-emphasis-button"
-							onClick={fetchMovie}
+							onClick={() => {
+									fetchMovie();
+									window.scrollTo({ top: 0, left: 0 });
+								}}
 						>
 							Nouvelle sélection
 						</button>

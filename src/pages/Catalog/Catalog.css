@@ -173,3 +173,9 @@ body {
 .btn-info {
 	margin: 20px;
 }
+
+.main-loading {
+	height: 60vh;
+	text-align: center;
+	padding-top: 10%;
+}

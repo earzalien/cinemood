@@ -107,7 +107,7 @@ function Filters({
 								Genre
 							</button>
 							<div className={`dropdown-content ${open ? "show" : ""}`}>
-								{genreListApi?.genres?.map((g) => ( 
+								{genreListApi?.map((g: GenreItem) => ( 
 									<button
 										className={`genre-link ${
 											combinedGenres.includes(g.id) ? "active" : ""
@@ -218,7 +218,7 @@ function Filters({
 			{isOpen && (
 				<div className="selected-genres">
 					{combinedGenres.map((id) => {
-						const g = genreListApi?.genres?.find((item) => item.id === id);
+						const g = genreListApi?.find((item: GenreItem) => item.id === id);
 						if (!g) return null;
 
 						return (
