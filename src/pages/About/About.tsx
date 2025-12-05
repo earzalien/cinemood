@@ -5,7 +5,7 @@ function About() {
 		<>
 			<section className="primary-background about-page">
 				<article className="about">
-					<h1 className="primary-title">A propos</h1>
+					<h1 className="primary-title">À PROPOS</h1>
 					<p>
 						Bienvenue sur Ciné Mood, notre projet web réalisé par Clarissa,
 						Jeremy, Kevin et Solo au sein de Wild Code School (session 09/25).

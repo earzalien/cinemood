@@ -13,6 +13,7 @@ import CarouselMovie from "../../components/CarouselMovie/CarouselMovie";
 import Filters from "../../components/Filters/Filters";
 import { SearchbarContext } from "../../context/SearchBarContext";
 import MovieSearchModal from "../../components/MovieSearchModal/MovieSearchModal";
+import { OrbitProgress } from "react-loading-indicators";
 
 function Catalog() {
 	const [genres, setGenre] = useState<any>([]);
@@ -43,7 +44,19 @@ function Catalog() {
 		return () => clearInterval(interval);
 	}, [getAllMovies]);
 
-	if (!getAllMovies || getAllMovies.length === 0) return <div>Loading...</div>;
+	if (!getAllMovies || getAllMovies.length === 0)
+		return (
+			<>
+				<div className="main-loading primary-background">
+					<OrbitProgress
+						variant="track-disc"
+						color="#05a6d6"
+						dense
+						size="medium"
+					/>
+				</div>
+			</>
+		);
 
 	const coverUrl = getAllMovies[currentIndex].backdrop_path
 		? `https://image.tmdb.org/t/p/original${getAllMovies[currentIndex].backdrop_path}`

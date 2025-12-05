@@ -67,8 +67,6 @@ function Home() {
 		filtered && searchValueNotEmpty ? setIsOpen(true) : setIsOpen(false);
 
 		setFilteredMovies(filtered);
-
-		// setIsOpen(searchValue.trim().length > 0);
 	}, [searchValue, getAllMovies, setFilteredMovies, setIsOpen]);
 
 	return (

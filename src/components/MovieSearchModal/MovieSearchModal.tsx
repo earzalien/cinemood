@@ -1,8 +1,6 @@
 import MovieCard from "../MovieCard/MovieCard";
 
 function MovieSearchModal({ filteredMovies }: any) {
-	console.log(filteredMovies);
-
 	return (
 		<div className="modal-catalog primary-background">
 			{filteredMovies.length > 0 ? (

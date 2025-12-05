@@ -12,7 +12,7 @@ function NavBar() {
 	const toggleMenu = () => {
 		setIsMenuOpen(!isMenuOpen);
 	};
-	const { setIsOpen } = useContext(SearchbarContext);
+	const { setIsOpen, setSearchValue } = useContext(SearchbarContext);
 
 	return (
 		<>
@@ -25,6 +25,7 @@ function NavBar() {
 						onClick={() => {
 							window.scrollTo({ top: 0, left: 0 });
 							setIsOpen(false);
+							setSearchValue("");
 						}}
 						onKeyUp={() => {
 							window.scrollTo({ top: 0, left: 0 });
@@ -40,17 +41,38 @@ function NavBar() {
 				</div>
 				<ul className={`navbar-list ${isMenuOpen ? "show-mobile" : ""}`}>
 					<li className="navbar-item">
-						<Link to="/apropos" onClick={toggleMenu} className="nav-button">
+						<Link
+							to="/apropos"
+							onClick={() => {
+								toggleMenu();
+								window.scrollTo({ top: 0, left: 0 });
+							}}
+							className="nav-button"
+						>
 							À propos
 						</Link>
 					</li>
 					<li className="navbar-item">
-						<Link to="/profil" onClick={toggleMenu} className="nav-button">
+						<Link
+							to="/profil"
+							onClick={() => {
+								toggleMenu();
+								window.scrollTo({ top: 0, left: 0 });
+							}}
+							className="nav-button"
+						>
 							Mon profil
 						</Link>
 					</li>
 					<li className="navbar-item">
-						<Link to="/catalogue" className="nav-button" onClick={toggleMenu}>
+						<Link
+							to="/catalogue"
+							className="nav-button"
+							onClick={() => {
+								toggleMenu();
+								window.scrollTo({ top: 0, left: 0 });
+							}}
+						>
 							Catalogue
 						</Link>
 					</li>

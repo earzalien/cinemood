@@ -239,10 +239,13 @@
 
 .pseudo {
 	width: auto;
+	border-radius: 5px;
 }
 
 .comment {
 	scrollbar-width: auto;
+	width: 600px;
+	border-radius: 10px;
 }
 
 #nouveau-commentaire {

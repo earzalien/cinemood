@@ -18,7 +18,7 @@ export type Movie = {
 };
 
 export type FilterProps = {
-	genreListApi: GenreResponse;
+	genreListApi: any;
 	movies: Movie[];
 	filteredMovies: Movie[];
 	setFilteredMovies: React.Dispatch<React.SetStateAction<Movie[]>>;

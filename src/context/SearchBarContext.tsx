@@ -1,4 +1,4 @@
-import { createContext, useContext, useState, useEffect } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
 import type { Movie } from "../types/filterTypes";
 import type { SearchbarContextType } from "../types/SearchbarContextType";
 import { getAllMovies as fetchAllMovies } from "../api";
