@@ -11,8 +11,8 @@ import {
 } from "../../api";
 import CarouselMovie from "../../components/CarouselMovie/CarouselMovie";
 import Filters from "../../components/Filters/Filters";
-import MovieCard from "../../components/MovieCard/MovieCard";
 import { SearchbarContext } from "../../context/SearchBarContext";
+import MovieSearchModal from "../../components/MovieSearchModal/MovieSearchModal";
 
 function Catalog() {
 	const [genres, setGenre] = useState<any>([]);
@@ -20,10 +20,9 @@ function Catalog() {
 	const [topRatedMovies, setTopRatedMovies] = useState([]);
 	const [nowPlayingMovies, setNowPlayingMovies] = useState([]);
 	const [upcomingMovies, setUpcomingMovies] = useState([]);
-	const { getAllMovies, filteredMovies, setFilteredMovies } =
-		useContext(SearchbarContext);
+	const { getAllMovies, filteredMovies, setFilteredMovies, isOpen, setIsOpen } =
+		useContext<any>(SearchbarContext);
 	const [currentIndex, setCurrentIndex] = useState(0);
-	const [isOpen, setIsOpen] = useState(false);
 
 	useEffect(() => {
 		getGenresMovies().then(setGenre);
@@ -69,17 +68,7 @@ function Catalog() {
 
 			{isOpen ? (
 				<>
-					<div className="modal-catalog primary-background">
-						{filteredMovies.length > 0 ? (
-							filteredMovies.map((movie) => (
-								<MovieCard key={movie.id} movie={movie} />
-							))
-						) : (
-							<h1 className="secondary-title resurch-no-results">
-								Aucun résultat n'a été trouvé pour votre recherche.
-							</h1>
-						)}
-					</div>
+					<MovieSearchModal filteredMovies={filteredMovies} />
 				</>
 			) : (
 				<>

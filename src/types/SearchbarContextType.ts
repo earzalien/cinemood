@@ -8,4 +8,6 @@ export type SearchbarContextType = {
 	setSearchPropOpen: (value: boolean) => void;
 	filteredMovies: Movie[];
 	setFilteredMovies: React.Dispatch<React.SetStateAction<Movie[]>>;
+	isOpen: boolean;
+	setIsOpen: (value: boolean) => void;
 };

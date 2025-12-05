@@ -1,9 +1,10 @@
 import { Link } from "react-router";
 import "./NavBar.css";
 import "./NavBar-mobile.css";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { useLaunch } from "../../context/LaunchQuiz";
 import SearchInput from "../SearchInput/SearchInput";
+import { SearchbarContext } from "../../context/SearchBarContext";
 
 function NavBar() {
 	const { setLaunch } = useLaunch();
@@ -11,6 +12,7 @@ function NavBar() {
 	const toggleMenu = () => {
 		setIsMenuOpen(!isMenuOpen);
 	};
+	const { setIsOpen } = useContext(SearchbarContext);
 
 	return (
 		<>
@@ -22,6 +24,7 @@ function NavBar() {
 						className={`logo ${isMenuOpen ? "" : "show-mobile"}`}
 						onClick={() => {
 							window.scrollTo({ top: 0, left: 0 });
+							setIsOpen(false);
 						}}
 						onKeyUp={() => {
 							window.scrollTo({ top: 0, left: 0 });

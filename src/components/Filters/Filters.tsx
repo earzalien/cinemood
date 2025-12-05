@@ -107,7 +107,7 @@ function Filters({
 								Genre
 							</button>
 							<div className={`dropdown-content ${open ? "show" : ""}`}>
-								{genreListApi?.genres?.map((g) => ( 
+								{genreListApi?.map((g) => (
 									<button
 										className={`genre-link ${
 											combinedGenres.includes(g.id) ? "active" : ""

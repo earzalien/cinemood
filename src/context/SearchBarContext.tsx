@@ -1,7 +1,7 @@
-import { createContext, useContext, useState } from "react";
-import { getAllMovies } from "../api";
+import { createContext, useContext, useState, useEffect } from "react";
 import type { Movie } from "../types/filterTypes";
 import type { SearchbarContextType } from "../types/SearchbarContextType";
+import { getAllMovies as fetchAllMovies } from "../api";
 
 export const SearchbarContext = createContext<SearchbarContextType>({
 	getAllMovies: [],
@@ -11,6 +11,8 @@ export const SearchbarContext = createContext<SearchbarContextType>({
 	setSearchPropOpen: () => {},
 	filteredMovies: [],
 	setFilteredMovies: () => {},
+	isOpen: false,
+	setIsOpen: () => {},
 });
 
 export function useSearchbar() {
@@ -25,9 +27,19 @@ export function useSearchbar() {
 function SearchbarProvider({
 	children,
 }: { children: React.ReactNode }): JSX.Element {
+	const [getAllMovies, setGetAllMovies] = useState<Movie[]>([]);
 	const [searchValue, setSearchValue] = useState("");
 	const [searchPropOpen, setSearchPropOpen] = useState(false);
 	const [filteredMovies, setFilteredMovies] = useState<Movie[]>([]);
+	const [isOpen, setIsOpen] = useState(false);
+
+	useEffect(() => {
+		async function load() {
+			const movies = await fetchAllMovies();
+			setGetAllMovies(movies);
+		}
+		load();
+	}, []);
 
 	return (
 		<SearchbarContext.Provider
@@ -39,6 +51,8 @@ function SearchbarProvider({
 				setSearchPropOpen,
 				filteredMovies,
 				setFilteredMovies,
+				isOpen,
+				setIsOpen,
 			}}
 		>
 			{children}
