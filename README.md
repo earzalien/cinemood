@@ -1,33 +1,83 @@
-# React + TypeScript + Vite
+# 🎬 Cinemood
 
-Ce modèle fournit une configuration minimale pour faire fonctionner React dans Vite avec certaines règles Biome et package préinstallé.
+Cinemood est une application web qui propose des recommandations de films personnalisées en fonction de ton **humeur** et de quelques préférences simples (genre, année, etc.).
+Tu réponds à un court questionnaire, l’interface te suggère une sélection de films et tu peux consulter les fiches détaillées.
 
-Il est préconfiguré avec un ensemble d'outils pour aider les étudiants à produire du code de qualité industrielle, tout en restant un outil pédagogique :
+---
 
-- **Husky** : Vous permet d'exécuter des commandes spécifiques déclenchées par des événements _git_.
-- **Vite** : Alternative à _Create-React-App_, offrant une expérience plus fluide avec moins d'outils.
-- **Biome** : Alternative à _ESlint_ et _Prettier_, assurant la qualité du code selon les règles choisies.
+## ✨ Fonctionnalités
 
-## Utilisateurs Windows
+- Sélection de l’humeur via une interface intuitive (curseur / boutons).
+- Questionnaire rapide pour affiner les recommandations (genres, durée, année de sortie, etc.).
+- Liste de recommandations dynamiques avec affiches, titres, notes et résumé.
+- Fiches film détaillées (casting, synopsis, informations clés).
+- Interface responsive pensée mobile-first.
+- Gestion des états et types avec React + TypeScript pour un code robuste.
 
-Assurez-vous de lancer ces commandes dans un terminal Git pour éviter [les problèmes de formats de nouvelles lignes](https://en.wikipedia.org/wiki/Newline#Issues_with_different_newline_formats) :
+---
 
-```sh
-git config --global core.eol lf
-git config --global core.autocrlf false
+## 🧱 Stack technique
+
+- **Frontend** : React + TypeScript + Vite.
+- **Styling** : CSS.
+- **Qualité de code** : Biome (lint + format), Husky (pre-commit hooks).
+- **API films** : TMDB.
+- **Déploiement** : Vercel.
+
+---
+
+## 🚀 Prise en main
+
+### 1. Prérequis
+
+- Node.js (version recommandée : 18+).
+- npm installé globalement.
+
+### 2. Installation
+
+```bash
+git clone https://github.com/earzalien/cinemood.git
+cd cinemood
+npm install
 ```
 
-## Installation & Utilisation
+### 3. Configuration de l’environnement
 
-1. Installez le plugin **Biome** dans VSCode et configurez-le.
-2. Clonez ce dépôt, puis accédez au répertoire cloné.
-3. Exécutez la commande `npm install`.
-4. Créez un fichier d'environnement (`.env`) à la racine du dossier projet : vous pouvez copier le fichier `.env.sample` comme modèle (**ne le supprimez pas**).
+Créer un fichier `.env` à la racine du projet en s’inspirant de `.env.sample` :
 
-## Commandes de Base
+```bash
+cp .env.sample .env
+```
 
-| Commande               | Description                                                                 |
-|------------------------|-----------------------------------------------------------------------------|
-| `npm install`          | Installe les dépendances                   |
-| `npm run dev`          | Démarre le server en développement         |
-| `npm run check`        | Exécute les outils de validation (linting et formatage)                     |
+Puis renseigner les variables nécessaires, par exemple :
+
+```env
+VITE_TMDB_API_KEY=ta_clef_api
+VITE_API_URL=https://api.themoviedb.org/3
+```
+
+### 4. Lancement du projet
+
+```bash
+# Mode développement
+npm run dev
+
+# Vérification qualité (lint + format)
+npm run check
+
+# Build de production
+npm run build
+
+# Prévisualisation du build
+npm run preview
+```
+
+
+---
+
+## 👨‍💻 Auteurs
+
+Projet réalisé par **Kévin, Solo, Jeremy et Clarissa** dans le cadre de la formation Développeur Web & Mobile à la Wild Code School.
+
+- LinkedIn : https://www.linkedin.com/in/kevin-ressegaire/
+- Portfolio : https://portfolio-ressegaire-kevin.vercel.app
